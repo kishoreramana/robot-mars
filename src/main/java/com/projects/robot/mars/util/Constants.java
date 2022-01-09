@@ -1,4 +1,4 @@
-package com.projects.robot.mars;
+package com.projects.robot.mars.util;
 
 public class Constants {
     public static final int MIN_X_ORDINATE = 0;
