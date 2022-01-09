@@ -1,6 +1,7 @@
 package com.projects.robot.mars;
 
 import com.projects.robot.mars.model.Orientation;
+import com.projects.robot.mars.util.Constants;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,12 +50,12 @@ public class Robot {
                     break;
                 case 'F':
                     position.moveForward();
-                    if(position.getX() > upperCoordX)
+                    if(position.getX() < 0 || position.getX() > upperCoordX)
                     {
                     	return upperCoordX + " " + position.getY() + " "+ position.getOrientation().getName() + Constants.ROVER_LOST;
                     } 
                     
-                    if(position.getY() > upperCoordY)
+                    if(position.getY() < 0 || position.getY() > upperCoordY)
                     {
                     	return position.getX() + " " + upperCoordY + " "+ position.getOrientation().getName() + Constants.ROVER_LOST;
                     }

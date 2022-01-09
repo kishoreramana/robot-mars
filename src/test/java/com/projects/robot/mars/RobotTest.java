@@ -51,7 +51,10 @@ class RobotTest {
         return Stream.of(
                 arguments("1 1 E", "RFRFRFRF" , "1 1 E",  "Rover is inside the plateau"),
                 arguments("3 2 N", "FRRFLLFFRRFLL" , "3 3 N LOST",  "Rover is lost"),
-                arguments("0 3 W", "LLFFFLFLFL" , "3 3 N LOST",  "Rover is lost")
+                arguments("0 3 W", "LLFFFLFLFL" , "3 3 N LOST",  "Rover is lost"),
+                arguments("1 3 E", "LLFFFLF" , "5 3 W LOST",  "Rover is lost"),
+                arguments("0 0 N", "RLFLFLFL" , "5 1 W LOST",  "Rover is lost"),
+                arguments("0 2 W", "LLFFLRRL" , "2 2 E",  "Rover is inside the plateau")
         );
     }
 
