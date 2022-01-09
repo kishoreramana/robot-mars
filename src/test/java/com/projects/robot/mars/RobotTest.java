@@ -41,17 +41,17 @@ class RobotTest {
     @MethodSource("instructions")
     public void test_Instructions(String startPosition, String instructions, String endPosition, String message){
         Robot robot = new Robot();
-        String resultPosition = robot.execute(startPosition, instructions);
+        String upperCoord = "5 3";
+        String resultPosition = robot.execute(upperCoord, startPosition, instructions);
         Assertions.assertNotNull(resultPosition);
         Assertions.assertEquals(endPosition,resultPosition, message);
     }
 
     private static Stream<Arguments> instructions() {
         return Stream.of(
-                arguments("1 1 N", "LL" , "1 1 S",  "Rover is inside the plateau"),
                 arguments("1 1 E", "RFRFRFRF" , "1 1 E",  "Rover is inside the plateau"),
-                arguments("0 3 W", "LLFFFLFLFL" , "2 4 S",  "Rover is inside the plateau"),
-                arguments("3 2 N", "FRRFLLFFRRFLL" , "3 3 N",  "Rover is lost")
+                arguments("3 2 N", "FRRFLLFFRRFLL" , "3 3 N LOST",  "Rover is lost"),
+                arguments("0 3 W", "LLFFFLFLFL" , "3 3 N LOST",  "Rover is lost")
         );
     }
 

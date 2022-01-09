@@ -20,16 +20,21 @@ public class Robot {
         }
 
         System.out.println("Upper right coordinates : "+ inputList.get(0));
-
+        		;
         Robot robot = new Robot();
         int counter = 1;
         for(int i=1 ; i< inputList.size(); i+=2){
-           String output = robot.execute(inputList.get(i), inputList.get(i+1));
+           String output = robot.execute(inputList.get(0), inputList.get(i), inputList.get(i+1));
            System.out.println("Rover "+counter++ + " output : " + output);
         }
     }
 
-    public String execute(String startPosition, String instructions){
+    public String execute(String upperCoord, String startPosition, String instructions){
+    	String[] upperCoordArr = upperCoord.split(" ");
+        
+        int upperCoordX = Integer.valueOf(upperCoordArr[0]);
+        int upperCoordY = Integer.valueOf(upperCoordArr[1]);
+        		
         String[] startPosArr = startPosition.split(" ");
         Orientation currentOrientation = Orientation.getOrientationForName(startPosArr[2]);
         Position position = new Position(Integer.valueOf(startPosArr[0]), Integer.valueOf(startPosArr[1]), currentOrientation);
@@ -44,6 +49,15 @@ public class Robot {
                     break;
                 case 'F':
                     position.moveForward();
+                    if(position.getX() > upperCoordX)
+                    {
+                    	return upperCoordX + " " + position.getY() + " "+ position.getOrientation().getName() + Constants.ROVER_LOST;
+                    } 
+                    
+                    if(position.getY() > upperCoordY)
+                    {
+                    	return position.getX() + " " + upperCoordY + " "+ position.getOrientation().getName() + Constants.ROVER_LOST;
+                    }
                     break;
                 default:
                     System.out.println("Not a valid instruction - " + instruction);
