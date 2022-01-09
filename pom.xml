@@ -57,7 +57,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.projects.robot.mars.Application</mainClass>
+                            <mainClass>com.projects.robot.mars.Robot</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
