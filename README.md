@@ -36,19 +36,5 @@ LLFFFLFLFL
 Output:
 Upper right coordinates : 5 3
 Rover 1 output : 1 1 E
-Rover 2 output : 3 3 N
-Rover 3 output : 2 4 S
-
-Sample 2:
-
-Input: 
-5 5
-1 2 N
-LMLMLMLMM
-3 3 E
-MMRMMRMRRM
-
-Output:
-Upper right coordinates : 5 5
-Rover 1 output : 1 3 N
-Rover 2 output : 5 1 E
+Rover 2 output : 3 3 N LOST
+Rover 3 output : 3 3 N LOST
